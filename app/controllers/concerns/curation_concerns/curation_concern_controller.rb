@@ -17,7 +17,7 @@ module CurationConcerns::CurationConcernController
 
   module ClassMethods
     def curation_concern_type=(curation_concern_type)
-      load_and_authorize_resource class: curation_concern_type, instance_name: :curation_concern, except: [:show, :file_manager]
+      load_and_authorize_resource class: curation_concern_type, instance_name: :curation_concern, except: [:show, :file_manager, :inspect_work]
       self._curation_concern_type = curation_concern_type
     end
 
@@ -100,6 +100,10 @@ module CurationConcerns::CurationConcernController
   end
 
   def file_manager
+    presenter
+  end
+
+  def inspect_work
     presenter
   end
 
