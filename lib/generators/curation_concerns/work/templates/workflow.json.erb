@@ -1,7 +1,23 @@
 {
   "work_types": [
     {
-      "name": "<%= file_name %>"
+      "name": "<%= file_name %>",
+        "actions": [{
+          "name": "complete",
+          "from_states": [{"names": ["submitting"], "roles": ["submit_work"]}],
+          "transition_to": "complete",
+          "notifications": [
+             {
+               "notification_type": "email",
+               "name": "confirmation_of_submitted_to_ulra_committee",
+               "to": ["creating_user"],
+               "cc": ["advising"]
+             }
+           ],
+           "methods": [
+             "CurationConcerns::Workflow::ActivateObject"
+           ]
+        }]
     }
   ]
 }
