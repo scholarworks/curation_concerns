@@ -3,9 +3,9 @@
     {
       "name": "<%= file_name %>",
         "actions": [{
-          "name": "complete",
-          "from_states": [{"names": ["submitting"], "roles": ["submit_work"]}],
-          "transition_to": "complete",
+          "name": "deposity",
+          "from_states": [{"names": ["new"], "roles": ["depositing"]}],
+          "transition_to": "deposited",
           "notifications": [
              {
                "notification_type": "email",
